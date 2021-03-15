@@ -52,11 +52,21 @@ if (count($_SESSION['itens']) == 0) {
 
             array(
                 'idProduto' => $idProduto,
-                'qtd'     => $qtd,
-                'preco'   => $produtos[0]["preco"],
-                'total'   => $total
+                'qtd'       => $qtd,
+                'preco'     => $produtos[0]["preco"],
+                'total'     => $total
             )
         );
     }
+
+    $total1 = 0;
+    foreach ($_SESSION['dados'] as $value) {
+
+        $value['idProduto'];
+        $total1 += ($value['qtd'] * $value['preco']);
+        
+    }
+    
+    echo 'Valor Total: R$ <span style="color:#ff0000;">'.number_format($total1,"2",",",".").'</span> <br />';
 }
 echo '<a href="finalizar.php" >Finalizar Pedido </a>';
